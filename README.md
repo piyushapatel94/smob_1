@@ -50,3 +50,4 @@ Specify what it takes to deploy your app.
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 # smob_UI
 # smob_1
+# smob_1
