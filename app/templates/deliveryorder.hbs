@@ -1,0 +1,125 @@
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="materialrequest-box">
+ <br/>
+
+  {{#if isShow}}
+   
+    <br/>
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'toDeliverDelivery'}}> Delivery  Delivered</button>
+    </div>
+    <br/>
+    <br/>  <b><span style="margin-left:50%">OR</span></b>
+    <br/>
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'notdeliverdelivery'}}>Not Delivered </button>
+    </div>
+  {{/if}}
+  {{#if isShowdeliveryorder}}
+  <div id="inner-form-header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Deliver Order</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+  <br/>
+   <form action="" method="post">
+     <div class="myformleft" align="center">
+    <div class="group">  
+            
+       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Deliver to" required=""}}
+      
+    </div>
+	    <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='address' placeholder="Delivery  Address" required=""}}
+      
+    </div>
+     <div class="group">      
+   {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
+    </div>
+      
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='item' placeholder="Item Name" required=""}}
+      
+    </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
+       {{!-- {{pikaday-input class="form-control" value=startdeliverydate valuePath="startdeliverydate"  onSelection=(action (mut startdeliverydate)) 
+placeholder="Start Project Date" readonly=true format="DD/MMM/YYYY"}}--}}
+    </div>
+    <div class="group">   
+        {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+          <a id="upload_file" style="font-size:18px"><img src="assets/images/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Quotation Order</a>
+         {{/pl-uploader}}
+ 
+    </div>
+   
+     <div class="row ">
+      <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
+    </div> 
+
+     </div>
+    {{!-- </div> --}}
+   
+  </form>
+  {{/if}}
+  {{#if isshowbutton}}
+   <div class="group">
+      <button class="mybutton" type="submit" {{action 'doDelivered'}}>Delivery Delivered</button>
+    </div> 
+ {{/if}}  
+  {{#if isshowNotdelivered}}
+  <div  align="center">
+  <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='remark' placeholder="Remark" required=""}}   
+    </div>
+    <div class="group">      
+      {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a date" options=(readonly extraPickadateOptions)}}
+    </div>
+  </div>
+   <div class="group ">
+      <button class="mybutton" type="submit" {{action 'notDelivered'}}>Delivery Not Delivered</button>
+    </div> 
+ {{/if}}  
+ 
+
+ </div> 
+ {{#if ShowingModalrequest}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Delivery Order Submitted Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="mybutton" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+
+ {{#if ShowingModal}}
+{{#modal-dialog close="doDelivered" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Your Goods are Delivered Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="mybutton" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+ 
+ {{#if myShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Your Remark submitted Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="close" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+  {{#if isShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+          <h3>file Uploaded Sucessfully... !</h3>
+                <div class="modal-header">
+                        <button type="button" class="close" {{action "Goto" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+                </div>
+ {{/modal-dialog}}
+ {{/if}}

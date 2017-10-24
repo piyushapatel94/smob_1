@@ -1,0 +1,113 @@
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
+<div class="materialrequest-box">
+  {{#if isShowinvoice}}
+  <div id="inner-form-header">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b> Invoice</b></h1></div>
+    <!--<div id="bottom-head"><h1 id="logintoregister">Login</h1></div>-->
+  </div> 
+  <br/>
+   <form action="" method="post">
+     <div class="myformleft" align="center">
+    <div class="group">  
+            
+       {{validated-input  type="text" model=this  valuePath='companyname' placeholder="Invoice To" required=""}}
+      
+    </div>
+	    <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='address' placeholder="Delivery  Address" required=""}}
+      
+    </div>
+      <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='formno' placeholder="Invoice Number" required=""}}
+    </div>
+     <div class="group">      
+     {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a Requested date" options=(readonly extraPickadateOptions)}}
+    </div>
+      
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='item' placeholder="Item Name" required=""}}
+      
+    </div>
+     <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='Quantity' placeholder="Quantity" required=""}}
+      
+    </div>
+    <div class="group">      
+      {{validated-input  type="text" model=this  valuePath='totalamount' placeholder="Total Amount" required=""}}
+      
+    </div>
+     <div class="group">   
+        {{#pl-uploader  for="upload_file" runtimes="html5 flash silverlight" onfileadd="uploadDoc" as |queue|}}
+          <a id="upload_file" style="font-size:18px"><img src="assets/images/images2.png" alt="Smiley face" width="42" height="42">Click Here To Upload Quotation Order</a>
+         {{/pl-uploader}}
+    </div>
+   
+     <div class="group">
+      <button class="mybutton" type="submit" {{action 'submitdetails'}}>submit</button>
+    </div> 
+
+     </div>
+    {{!-- </div> --}}
+   
+  </form>
+   <a href="#" class="go-top">Scroll to Top</a> 
+   {{/if}}
+   {{#if isShowbuttoninvoice}}
+    <div align ="center" class="group">      
+     {{pick-a-date class='inputMaterial' date=(readonly formdate) on-selected=(action (mut formdate)) placeholder="Pick a Requested date" options=(readonly extraPickadateOptions)}}
+    </div>
+    <div class="group">
+      <button class="mybutton" type="submit" {{action 'approvetoinvoice'}}>Approve Invoice</button>
+    </div> 
+{{/if}}
+ </div> 
+ {{#if ShowingModalrequest}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Invoice Submitted Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="mybutton" {{action "okbutton" }}>ok</button>
+                        </div>
+ {{/modal-dialog}}
+ {{/if}}
+ {{#if ShowingModal}}
+ {{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+                 <h3>Invoice Approved Sucessfully... !</h3>
+                        <div class="modal-header">
+                              <button type="button" class="mybutton" {{action "okbutton" }}><img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+                        </div>
+ {{/modal-dialog}}
+
+ {{/if}}
+ {{#if isShowingModal}}
+{{#modal-dialog close="submitdetails" targetAttachment="center" translucentOverlay=true}}
+          <h3>file Uploaded Sucessfully... !</h3>
+                <div class="modal-header">
+                        <button type="button" class="close" {{action "Goto" }}> <img src="assets/images/images7.jpg" alt="Smiley face" width="50" height="50"></button>
+                </div>
+ {{/modal-dialog}}
+ {{/if}}

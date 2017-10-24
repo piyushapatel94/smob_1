@@ -1,0 +1,92 @@
+<br/>
+<br/>
+<br/><br/>
+<br/>
+<br/>
+<script>
+    $(document).ready(function() {
+        // Show or hide the sticky footer button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) {
+                $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+            }
+        });
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 300);
+        })
+    });
+</script>
+
+<div id="historyheader">
+    <div id="cont-lock" style="text-align:center ;color:white"><h1><b>Transaction History</b></h1></div>
+</div> 
+<div class="">
+    
+</div>
+<div class="historydispaly">
+  <div class="historydispaly-left">
+    <!--<p style="font-size: 20px;color: coral;text-align:center">Transaction Id :</p>-->
+    
+
+<!--<ul style="list-style-type:none">
+
+   {{#each Transactionlist as |item|}} 
+    <div class="inner-historydisplay">
+    <b>Date:</b> <li>{{item.date}}</li> 
+     <b>Update By:</b>  <li>{{item.updatedBy}}</li>
+     <b>Quantity :</b>   <li>{{item.Quantity}}</li>
+      <b>intended-to:</b> <li>{{item.intended-to}}</li>
+      <b>cost:</b> <li>{{item.cost}}</li>
+      <b>Attachment:</b> <li>{{item.Attachment}}</li>
+      <hr class="style3">
+     <!--</div>
+     <br/>
+  {{/each}}
+
+  </ul>-->
+  <ul style="list-style-type:none">
+
+   {{#each transactionlist as |item|}} 
+     
+      <li style="padding-left: 50%"><b> Updated By:</b>{{item.transactiondetails.updatedBy}}</li>
+       <li style="padding-left: 50%;color:	#00695c"><b> Updated Status:{{item.transactiondetails.status}}</b></li>
+    <br/>
+     <li style="color:red"><span class="glyphicon glyphicon-calendar"></span> <b> Date:</b>{{item.transactiondetails.formdate}}</li> 
+     <br/>
+     <li> <span class="glyphicon glyphicon-user"></span><b> Request To:</b>{{item.transactiondetails.companyname}}</li>
+     <br/>
+     <li> <span class="glyphicon glyphicon-oil"></span> <b> Item :</b> {{item.transactiondetails.item}}</li>
+       <br/>
+      <li>  <span class="glyphicon glyphicon-tasks"></span> <b> Quantity :</b>{{item.transactiondetails.Quantity}}</li>
+       <br/>
+      <li>  <span class="glyphicon glyphicon-bitcoin"></span> <b> Total Cost :</b>{{item.transactiondetails.totalamount}}</li>
+       <br/>
+      <li> <span class="glyphicon glyphicon-plane"></span> <b> Address: </b>{{item.transactiondetails.address}}</li>
+       <br/>
+      <li>  <span class="glyphicon glyphicon-saved"></span>  <b> URL: </b>
+<a href={{item.transactiondetails.url}} download><img src="assets/images/images1.jpg" alt="Smiley face" width="42" height="42"> Click Here to Download Document</a>
+          </li>
+           <br/>
+           <li> <span class="glyphicon glyphicon-comment"></span> <b> Remark: </b>{{item.transactiondetails.remark}}</li>
+      <hr class="style3">
+      <br/>
+      <br/>
+  {{/each}}
+
+  </ul>
+ 
+ </div>
+ <!-- this button is for updateing next transaction-->
+    <div class="row ">
+      <button class="mybutton" type="submit" {{action 'gotoupdate'}}>Update</button>
+    </div> 
+
+</div>
+
+ <a href="#" class="go-top">Scroll to Top</a> 
