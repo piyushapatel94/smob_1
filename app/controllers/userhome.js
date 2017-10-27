@@ -179,6 +179,9 @@ export default Ember.Controller.extend({
         
         gotoclose:function(){
             this.set('isShowingWeatherData',false);  
+        },
+        gotomap:function(){
+            this.transitionToRoute('mymap');
         }
         /*callajax:function(){
             var mycontroller = this;
