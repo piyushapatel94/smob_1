@@ -101,11 +101,13 @@ $(document).ready(function() {
 <br/>
 <br/>
 <!-- user-detail-Table-->
+<!--<div class="row">
+    <div class="col-sm-6">-->
 <div class="middle-container">
        <a href="#" {{action 'gotoweather'}}>
    <img src="assets/images/w1.jpg" alt="Smiley face" width="100" height="100" >
 </a>
-  <button class="mybutton" type="submit" {{action 'gotomap'}}> new map</button>
+  <button class="mybutton" type="submit" {{action 'gotomap'}}>Map</button>
     {{#if shownewrequestbutton}}
     <div class="row ">
       <div class="col-sm-6">
@@ -119,7 +121,7 @@ $(document).ready(function() {
      {{#if showdashboardButtonOnly}}
      <div class="row ">
          <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashboard</button>
-          </div>
+        </div>
        {{/if}}
     
       {{#each myarray as |item|}}
@@ -163,8 +165,23 @@ $(document).ready(function() {
 
       
    
-    </div>  
- 
+  <!--  </div>  
+    </div>
+    <div class="col-sm-6">
+    <div class="map-container">
+    {{#g-map lat=20.5937 lng=78.9629 zoom=12 as |context|}}
+  {{#g-map-infowindow context lat=20.5937 lng=78.9629}}
+    
+    <p>Text with {{bound}} variables</p>
+    <!--<button {{action "do"}}>Do</button>
+  {{/g-map-infowindow}}
+  {{g-map-marker context lat=Slat lng=Slan  icon=myIcon}}
+  {{g-map-marker context lat=Dlat lng=Dlan}}
+  
+{{/g-map}}
+   </div>
+    </div>-->
+</div>
  <a href="#" class="go-top">Scroll to Top</a> 
 
    <!-- <button class="mybutton" type="submit" {{action 'callajax'}}>test Request</button>

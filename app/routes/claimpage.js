@@ -2,7 +2,7 @@ import Ember from 'ember';
 import CONFIG from 'smob-ui-1/config/environment';
 export default Ember.Route.extend({
     model(){
-    var requestid =  this.controllerFor('userhome').get('requestid' );        
+    var requestid =  this.controllerFor('userhome').get('requestid');        
     console.log('requestid from do:' +requestid);
     this.controllerFor('claimpage').set('requestid', requestid);
 
@@ -11,7 +11,7 @@ export default Ember.Route.extend({
     this.controllerFor('claimpage').set('usertype', usertype);
 
     
-    var isshowbutton =  this.controllerFor('history').get('isshowbutton' );        
+    var isshowbutton =  this.controllerFor('history').get('isshowbutton');        
     console.log('isshowbutton-- from do:' +isshowbutton);
     this.controllerFor('claimpage').set('isshowbutton', isshowbutton);
      

@@ -35,6 +35,8 @@
     "ember-cp-validations": "^3.4.0",
     "ember-data": "^2.13.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-g-map": "0.0.25",
+    "ember-google-map": "0.0.26",
     "ember-load-initializers": "^1.0.0",
     "ember-modal-dialog": "^2.3.0",
     "ember-models-table": "^1.13.0",

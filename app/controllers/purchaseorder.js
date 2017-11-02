@@ -66,7 +66,7 @@ export default Ember.Controller.extend(Validations,{
             var dataString = {  
                 "requestid":requestid,
                     "status":"QuotationRejected",
-                    "InvolvedParties":"manufacturer,Supplier",
+                    "InvolvedParties":usertype,
                     "transactionString":{
                        "usertype":usertype ,
                       "companyname": "NA",
@@ -141,6 +141,7 @@ export default Ember.Controller.extend(Validations,{
                         "formdate":formdate1,
                         "url":url,
                         "totalamount":"NA",
+                        "remark":"NA",
                         "status":"POraised",
                     }
                 };
