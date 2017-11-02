@@ -56,8 +56,12 @@
         <p style="color:blue"> Latitude :<b>{{Latitude}}</b></p>
           <p style="color:blue"> Longitude :<b>{{Longitude}}</b></p>
   {{/g-map-infowindow}}
-  {{g-map-marker context lat=Slat lng=Slan  }}
-  {{g-map-marker context lat=Dlat lng=Dlan }}
+  {{g-map-route context
+                travelMode='driving' strokeColor='red'
+                originLat=Slat originLng= Slan
+                destinationLat= Dlat destinationLng=Dlan}}
+  {{g-map-marker context lat=Slat lng=Slan icon=myIcon }}
+  {{g-map-marker context lat=Dlat lng=Dlan icon=myIcon}}
   
 {{/g-map}}
     </div>
