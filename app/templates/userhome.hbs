@@ -123,7 +123,16 @@ $(document).ready(function() {
          <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashboard</button>
         </div>
        {{/if}}
-    
+     <table >
+    <thead>
+      <tr>
+        <th>Program</th>
+        <th>Date</th>
+        <th>Status</th>
+        
+    <th>close</th>
+      </tr>
+    </thead>
       {{#each myarray as |item|}}
      <!-- <div id="rcorners1">
        <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
@@ -139,7 +148,7 @@ $(document).ready(function() {
              </div>
        </div>
       </div>-->
-    <div id="rcorners1">
+    <!--<div id="rcorners1">
        <div id='frame'>
             <p class="note sticky1">
                 <div class='pin'></div>
@@ -157,15 +166,30 @@ $(document).ready(function() {
              </p>
            
        </div>
-       </div>
-   
-      {{/each}}
+       </div>-->
 
+  
+    
+
+     
+      <tr>
+      <td style="padding:3px">  {{item.requestid}}</td>
+      <td style="padding:3px">  {{item.date}}</td>
+      <td style="padding:3px"> <a  {{action 'detailprogram' item.status item.programid}}>{{item.status}} </a></td>
+      <td  style="padding:3px">  <button {{action 'closeProgram' message item}}>Close</button></td>
+      </tr>
+    
+     
+   
+    
+ 
+      {{/each}}
+ </table>
 
 
       
    
-  <!--  </div>  
+  <!-- </div>  
     </div>
     <div class="col-sm-6">
     <div class="map-container">
@@ -173,7 +197,7 @@ $(document).ready(function() {
   {{#g-map-infowindow context lat=20.5937 lng=78.9629}}
     
     <p>Text with {{bound}} variables</p>
-    <!--<button {{action "do"}}>Do</button>
+    <button {{action "do"}}>Do</button>
   {{/g-map-infowindow}}
   {{g-map-marker context lat=Slat lng=Slan  icon=myIcon}}
   {{g-map-marker context lat=Dlat lng=Dlan}}

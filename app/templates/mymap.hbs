@@ -49,12 +49,13 @@
     
     <div class="map" style=" margin-left:30px">
 {{#g-map lat=20.5937 lng=78.9629 zoom=12 as |context|}}
-  {{#g-map-infowindow context lat=20.5937 lng=78.9629}}
+  {{#g-map-infowindow context lat=Latitude lng=Longitude}}
     
     <p style="color:blue"> Elevation :<b>{{Elevation}}</b></p>
       <p style="color:blue"> Mapwidth :<b>{{Mapwidth}}</b></p>
         <p style="color:blue"> Latitude :<b>{{Latitude}}</b></p>
           <p style="color:blue"> Longitude :<b>{{Longitude}}</b></p>
+          {{g-map-marker context lat=Latitude lng=Longitude icon=myIcon2 }}
   {{/g-map-infowindow}}
   {{g-map-route context
                 travelMode='driving' strokeColor='red'

@@ -171,9 +171,9 @@ export default Ember.Controller.extend(Validations,{
                 this.toggleProperty('ShowingModalrequest');
                 },
         okbutton: function(){
-            this.transitionToRoute("userhome");
+                this.transitionToRoute("userhome");
                 },
-                Goto:function()
+        Goto:function()
                 {
                     this.set('ShowingModal',false);
                 },

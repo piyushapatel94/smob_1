@@ -41,7 +41,8 @@ export default Ember.Controller.extend(Validations,{
         //for pop-up modal
         toggleModal: function() {
 
-            this.toggleProperty('isShowingModal');
+           // this.toggleProperty('isShowingModal');
+         this.set('isShowingModal',true);
         },
         
         login:function(){

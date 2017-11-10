@@ -22,6 +22,11 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+  emberTracker: {
+    analyticsSettings: {
+      trackingId: 'UA-########-#'
+    }
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -29,7 +34,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.GOURL='http://192.168.0.12:3000';
+    ENV.GOURL='http://192.168.0.18:3000';
     ENV['g-map'] = {
       exclude: true,
       libraries: ['places', 'geometry'],
@@ -41,7 +46,7 @@ module.exports = function(environment) {
       protocol: 'https'
     }
   }
-
+  
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
@@ -54,7 +59,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.GOURL='http://119.81.59.59:3002/smob';
+    ENV.locationType = 'hash';
   }
 
   return ENV;

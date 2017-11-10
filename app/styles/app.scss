@@ -153,10 +153,10 @@ html{
     border-radius: 2px;
 }
 #header{
-  background: #009688;
-  position: relative;
-  height: 60px;
-  width: 100%;
+  //background: #009688;
+  //position: relative;
+  //height: 60px;
+ // width: 100%;
   margin-bottom: 30px;
 }
 
@@ -248,7 +248,12 @@ html{
   margin-bottom: 35px; 
   margin-left: 40px;
 }
-
+.thisgroup{
+  position:relative; 
+  //margin-bottom: 35px; 
+  margin-left: 40px;
+  font-size: 21px;
+}
 .inputMaterial 				{
   font-size:18px;
   padding:10px 10px 10px 5px;
@@ -649,7 +654,7 @@ th, td {
 //tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: blue;
+    //background-color:#00695c ;
     color: white;
 }
 

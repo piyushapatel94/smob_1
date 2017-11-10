@@ -18,7 +18,7 @@ export default Ember.Route.extend({
         console.log("updatedby from history : ",updatedby);
 
         var mycontroller = this;
-                return $.ajax({
+                 $.ajax({
                 url:CONFIG.GOURL+'/readRequest',
                 type: 'GET',
                 contentType: 'application/json', 
@@ -56,5 +56,43 @@ export default Ember.Route.extend({
                 }
                 
                 });
+
+                setInterval( function(){
+               
+                $.ajax({
+                    url: CONFIG.GOURL + '/location',
+                    type: 'GET',
+                    contentType: 'application/json',
+                    success: function(response) {
+                        // var message = response.message;
+                        console.log("data--->>>", JSON.stringify(response));
+                        var mydata = response.data;
+                        console.log("data--->>>", mydata);
+                        var Elevation =mydata[0].Elevation;
+                        console.log("Elevation--->>>", Elevation);
+                        var Mapwidth =mydata[0].Mapwidth;
+                        console.log("Mapwidth--->>>", Mapwidth);
+                        var Longitude =mydata[0].Longitude;
+                        console.log("Longitude--->>>", Longitude);
+                        var Latitude =mydata[0].Latitude;
+                        console.log("Latitude--->>>", Latitude);
+                        var MapHeight =mydata[0].MapHeight;
+                        console.log("MapHeight--->>>", MapHeight);
+                        
+                        mycontroller.controllerFor('history').set("Elevation",Elevation);
+                        mycontroller.controllerFor('history').set("Mapwidth",Mapwidth);
+                        mycontroller.controllerFor('history').set("Longitude",Longitude);
+                        mycontroller.controllerFor('history').set("Latitude",Latitude);
+                        mycontroller.controllerFor('history').set("MapHeight",MapHeight);
+        
+                    },
+                    error: function(response) {
+                        console.log('DEBUG: GET Enquiries Failed');
+                        console.log("Error Message: ", response);
+        
+                    }
+        
+                });
+            },3000);
     }
 });
