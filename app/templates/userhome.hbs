@@ -123,7 +123,7 @@ $(document).ready(function() {
          <button class="mybutton" type="submit" {{action 'gotodashboard'}}>Go to Dashboard</button>
         </div>
        {{/if}}
-     <table >
+   <!--  <table >
     <thead>
       <tr>
         <th>Program</th>
@@ -132,7 +132,7 @@ $(document).ready(function() {
         
     <th>close</th>
       </tr>
-    </thead>
+    </thead>-->
       {{#each myarray as |item|}}
      <!-- <div id="rcorners1">
        <p> <b> Transaction Id </b>: <button type="submit" {{action 'readlegend' item.requestid}} > {{item.requestid}}</button></p>
@@ -148,7 +148,7 @@ $(document).ready(function() {
              </div>
        </div>
       </div>-->
-    <!--<div id="rcorners1">
+    <div id="rcorners1">
        <div id='frame'>
             <p class="note sticky1">
                 <div class='pin'></div>
@@ -166,13 +166,13 @@ $(document).ready(function() {
              </p>
            
        </div>
-       </div>-->
+       </div>
 
   
-    
+    {{/each}}
 
      
-      <tr>
+    <!--  <tr>
       <td style="padding:3px">  {{item.requestid}}</td>
       <td style="padding:3px">  {{item.date}}</td>
       <td style="padding:3px"> <a  {{action 'detailprogram' item.status item.programid}}>{{item.status}} </a></td>
@@ -183,8 +183,8 @@ $(document).ready(function() {
    
     
  
-      {{/each}}
- </table>
+      
+ </table>-->
 
 
       
